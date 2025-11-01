@@ -1,0 +1,7 @@
+baseline_features_path: artifacts/features.parquet
+current_features_path: artifacts/current_features.parquet
+baseline_metrics_path: artifacts/metrics.json
+current_metrics_path: artifacts/current_metrics.json
+psi_threshold: 0.2
+ks_threshold: 0.1
+performance_drop_threshold: 0.1

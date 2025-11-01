@@ -1,0 +1,15 @@
+__pycache__/
+.ruff_cache/
+.pytest_cache/
+.venv/
+.env
+mlruns/
+artifacts/
+models/
+*.log
+*.pickle
+*.pkl
+*.jsonl
+*.lock
+*.DS_Store
+uv.lock

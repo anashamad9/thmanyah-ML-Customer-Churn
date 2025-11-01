@@ -1,0 +1,11 @@
+,retained,churned,delta
+total_listening_minutes,2758.528,2477.959,-280.57
+num_events,804.07,734.608,-69.462
+num_songs,663.573,597.824,-65.75
+avg_session_minutes,339.453,274.676,-64.776
+distinct_songs,609.766,552.176,-57.59
+median_session_minutes,259.772,202.976,-56.796
+distinct_artists,501.895,459.098,-42.797
+std_session_minutes,270.901,234.424,-36.478
+account_age_days,86.731,56.529,-30.202
+avg_items_per_session,100.675,83.288,-17.386

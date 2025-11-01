@@ -1,0 +1,23 @@
+data_path: customer_churn_mini.json
+artifacts_dir: artifacts
+model_registry: models
+tracking_uri: mlruns
+experiment_name: customer-churn
+model_name: gradient_boosting
+random_state: 42
+
+feature_config:
+  lookback_days: 30
+  min_events_per_user: 15
+  min_sessions_per_user: 2
+  include_gender: true
+  include_level: true
+  include_location: false
+
+split_config:
+  method: temporal
+  temporal_holdout_days: 14
+  test_ratio: 0.2
+  min_train_users: 80
+
+target_column: churned

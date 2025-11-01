@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/churn_pipeline/__init__.py
+src/churn_pipeline/config.py
+src/churn_pipeline/data_loader.py
+src/churn_pipeline/evaluation.py
+src/churn_pipeline/features.py
+src/churn_pipeline/monitoring.py
+src/churn_pipeline/trainer.py
+src/churn_pipeline/utils.py
+src/thmanyah_ml_customer_churn.egg-info/PKG-INFO
+src/thmanyah_ml_customer_churn.egg-info/SOURCES.txt
+src/thmanyah_ml_customer_churn.egg-info/dependency_links.txt
+src/thmanyah_ml_customer_churn.egg-info/requires.txt
+src/thmanyah_ml_customer_churn.egg-info/top_level.txt
+tests/test_features.py

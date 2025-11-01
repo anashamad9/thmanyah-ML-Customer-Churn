@@ -1,0 +1,38 @@
+{
+  "n_users": 222,
+  "churn_rate": 0.22972972972972974,
+  "mean_num_events_churned": 734.6078431372549,
+  "mean_num_events_retained": 804.0701754385965,
+  "top_feature_differences": [
+    {
+      "Unnamed: 0": "total_listening_minutes",
+      "retained": 2758.528,
+      "churned": 2477.959,
+      "delta": -280.57
+    },
+    {
+      "Unnamed: 0": "num_events",
+      "retained": 804.07,
+      "churned": 734.608,
+      "delta": -69.462
+    },
+    {
+      "Unnamed: 0": "num_songs",
+      "retained": 663.573,
+      "churned": 597.824,
+      "delta": -65.75
+    },
+    {
+      "Unnamed: 0": "avg_session_minutes",
+      "retained": 339.453,
+      "churned": 274.676,
+      "delta": -64.776
+    },
+    {
+      "Unnamed: 0": "distinct_songs",
+      "retained": 609.766,
+      "churned": 552.176,
+      "delta": -57.59
+    }
+  ]
+}
