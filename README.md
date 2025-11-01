@@ -44,10 +44,10 @@
    make train
    ```
 5. **Serve the predictor**:
-   ```bash
-   make api
-   ```
-   Then interact with `POST /predict` using event payloads (see below).
+ ```bash
+ make api
+ ```
+  Then interact with `POST /predict` using event payloads (see below). For demos you can call `GET /sample` to fetch a random user's events and forward them to `/predict`.
 
 > **Note**: The training scripts require `scikit-learn`, `joblib`, and `mlflow`. Ensure `make setup` completes successfully before running them.
 

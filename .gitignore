@@ -3,6 +3,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 .env
+node_modules/
+web/node_modules/
+web/.next/
 mlruns/
 artifacts/
 models/

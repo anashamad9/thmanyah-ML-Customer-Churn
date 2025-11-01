@@ -2,16 +2,19 @@ from __future__ import annotations
 
 import os
 from functools import lru_cache
+import random
 from pathlib import Path
 from typing import List
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from churn_pipeline.config import load_training_config
 from churn_pipeline.data_loader import clean_event_log
 from churn_pipeline.features import build_feature_matrix
+from .sample_data import SAMPLE_EVENT_PAYLOADS
 
 try:
     import joblib
@@ -51,6 +54,14 @@ class PredictionResponse(BaseModel):
 
 
 app = FastAPI(title="Customer Churn Predictor", version="0.1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=os.getenv("ALLOWED_ORIGINS", "*").split(","),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ModelService:
@@ -108,3 +119,17 @@ def _startup() -> None:
 def predict(request: PredictionRequest) -> PredictionResponse:
     service = get_service()
     return service.predict(request.events)
+
+
+class SampleResponse(BaseModel):
+    user_id: str
+    events: List[Event]
+
+
+@app.get("/sample", response_model=SampleResponse)
+def sample_user_events() -> SampleResponse:
+    """Return a pseudo-random event payload for demo purposes."""
+
+    sample = random.choice(SAMPLE_EVENT_PAYLOADS)
+    events = [Event.model_validate(event) for event in sample["events"]]
+    return SampleResponse(user_id=sample["userId"], events=events)
