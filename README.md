@@ -30,6 +30,7 @@
    ```bash
    pip install uv
    ```
+1a. **Download dataset**: place the Sparkify-style event log (e.g., `customer_churn_mini.json`) in the repository root or update `configs/training.yaml:data_path` to the correct location before training.
 2. **Sync dependencies** (system-wide virtual environment-free install):
    ```bash
    make setup
@@ -47,7 +48,14 @@
  ```bash
  make api
  ```
-  Then interact with `POST /predict` using event payloads (see below). For demos you can call `GET /sample` to fetch a random user's events and forward them to `/predict`.
+ Then interact with `POST /predict` using event payloads (see below). For demos you can call `GET /sample` to fetch a random user's events and forward them to `/predict`.
+6. **Launch the web dashboard** (in a new terminal):
+  ```bash
+  cd web
+  pnpm install  # or npm install / yarn
+  pnpm dev
+  ```
+  The site runs on `http://localhost:3000` and reads the API URL from `NEXT_PUBLIC_API_URL` (defaults to `http://127.0.0.1:8000/predict`). Ensure `make api` is running so the UI can proxy requests.
 
 > **Note**: The training scripts require `scikit-learn`, `joblib`, and `mlflow`. Ensure `make setup` completes successfully before running them.
 

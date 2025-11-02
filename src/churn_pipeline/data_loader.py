@@ -9,7 +9,15 @@ import pandas as pd
 def load_event_log(path: Path | str, columns: Optional[Iterable[str]] = None) -> pd.DataFrame:
     """Load a JSON lines event log into a pandas DataFrame."""
 
-    df = pd.read_json(Path(path), lines=True)
+    file_path = Path(path)
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Dataset not found at {file_path}. "
+            "Please place the Sparkify-style JSON lines file (e.g., customer_churn_mini.json) "
+            "in the project root or update configs/training.yaml:data_path to point to its location."
+        )
+
+    df = pd.read_json(file_path, lines=True)
     if columns is not None:
         df = df[list(columns)]
     return df
